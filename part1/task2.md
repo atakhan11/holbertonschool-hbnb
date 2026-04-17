@@ -1,54 +1,55 @@
 ```mermaid
 classDiagram
 
+class BaseModel {
+  +UUID id
+  +DateTime created_at
+  +DateTime updated_at
+  +save()
+  +update()
+}
+
 class User {
-  +id: String
-  +name: String
-  +email: String
-  +password: String
-  +createPlace()
-  +writeReview()
+  +String first_name
+  +String last_name
+  +String email
+  +String password
+  +create_place()
+  +write_review()
 }
 
 class Place {
-  +id: String
-  +title: String
-  +description: String
-  +price: float
-  +addAmenity()
+  +String title
+  +String description
+  +float price
+  +add_amenity()
 }
 
 class Review {
-  +id: String
-  +text: String
-  +rating: int
-  +createReview()
+  +String text
+  +int rating
 }
 
 class Amenity {
-  +id: String
-  +name: String
+  +String name
 }
 
-class Service {
-  +createUser()
-  +createPlace()
-  +addReview()
-}
+%% INHERITANCE
+User --|> BaseModel
+Place --|> BaseModel
+Review --|> BaseModel
+Amenity --|> BaseModel
 
 %% RELATIONSHIPS
-
 User "1" --> "0..*" Place : owns
 User "1" --> "0..*" Review : writes
 
 Place "1" --> "0..*" Review : has
 Place "1" --> "0..*" Amenity : includes
 
-Review --> User
-Review --> Place
+Review --> User : author
+Review --> Place : for
 
-Service --> User
-Service --> Place
-Service --> Review
-Service --> Amenity
+%% COMPOSITION
+Place *-- Amenity
 ```
