@@ -1,3 +1,4 @@
+##1.User Registration
 ```mermaid
 sequenceDiagram
 participant User
@@ -15,7 +16,7 @@ UserService-->>Facade: user created
 Facade-->>API: success response
 API-->>User: 201 Created
 ```
-
+##2. Place Creation
 
 ```mermaid
 sequenceDiagram
@@ -34,7 +35,7 @@ PlaceService-->>Facade: success
 Facade-->>API: response
 API-->>User: 201 Created
 ```
-
+##3. Review Submission
 
 ```mermaid
 sequenceDiagram
@@ -53,6 +54,7 @@ ReviewService-->>Facade: success
 Facade-->>API: response
 API-->>User: 201 Created
 ```
+##4. Fetch List of Places
 
 ```mermaid
 sequenceDiagram
