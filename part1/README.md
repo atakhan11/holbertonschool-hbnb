@@ -1,38 +1,8 @@
-```mermaid
-flowchart TB
+# Part 1 - Documentation
 
-    subgraph Presentation Layer
-        UI[User Interface]
-        API[API Controllers]
-    end
+## Tasks
 
-    subgraph Business Logic Layer
-        FACADE[Facade]
-        SERVICES[Services]
-
-        subgraph Domain Models
-            USER[User]
-            PLACE[Place]
-            AMENITY[Amenity]
-            REVIEW[Review]
-        end
-    end
-
-    subgraph Persistence Layer
-        REPO[Repositories]
-        DB[(Database)]
-    end
-
-    UI --> FACADE
-    API --> FACADE
-
-    FACADE --> SERVICES
-
-    SERVICES --> USER
-    SERVICES --> PLACE
-    SERVICES --> AMENITY
-    SERVICES --> REVIEW
-
-    SERVICES --> REPO
-    REPO --> DB
-```
+- [Task 1: High-Level Package Diagram](./task1.md)
+- [Task 2: Detailed Class Diagram](./task2.md)
+- [Task 3: Sequence Diagrams](./task3.md)
+- [Task 4: Documentation](./task4.md)
