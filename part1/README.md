@@ -9,7 +9,13 @@ flowchart TB
     subgraph Business Logic Layer
         FACADE[Facade]
         SERVICES[Services]
-        MODELS[Domain Models]
+
+        subgraph Domain Models
+            USER[User]
+            PLACE[Place]
+            AMENITY[Amenity]
+            REVIEW[Review]
+        end
     end
 
     subgraph Persistence Layer
@@ -21,7 +27,11 @@ flowchart TB
     API --> FACADE
 
     FACADE --> SERVICES
-    SERVICES --> MODELS
+
+    SERVICES --> USER
+    SERVICES --> PLACE
+    SERVICES --> AMENITY
+    SERVICES --> REVIEW
 
     SERVICES --> REPO
     REPO --> DB
